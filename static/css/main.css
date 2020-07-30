@@ -1,0 +1,67 @@
+@media(prefers-color-scheme: dark) {
+    body {
+        background-color: #292e32 !important;
+    }
+
+    .bg-adaptive, .card {
+        background-color: #343a40 !important;
+    }
+
+    .nav-link, .navbar-brand, .navbar-adaptive, .card,
+    p, h1, h2, h3, h4, h5, h6 {
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .btn-login-with-reddit {
+        color: white !important;
+    }
+}
+
+@media(prefers-color-scheme: light) {
+    body {
+        background-color: #eeeeee !important;
+    }
+
+    .bg-adaptive, .card {
+        background-color: #f8f9fa !important;
+    }
+
+    .nav-link, .navbar-brand, .navbar-adaptive, .card,
+    p, h1, h2, h3, h4, h5, h6 {
+        color: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .btn-login-with-discord, .btn-login-with-reddit {
+        color: white !important;
+    }
+}
+
+.content-spacing {
+    margin-bottom: 3em;
+}
+
+.card-spacing {
+    margin-bottom: 1em;
+}
+
+.btn-outline-login-with-reddit {
+    color: rgb(255, 69, 0) !important;
+    border-color: rgb(255, 69, 0) !important;
+}
+
+.btn-login-with-reddit {
+    color: white;
+    background-color: rgb(255, 69, 0) !important;
+    border-color: rgb(255, 69, 0) !important;
+}
+
+.btn-outline-login-with-discord {
+    color: #7289da !important;
+    border-color: #7289da !important;
+}
+
+.btn-login-with-discord {
+    color: white;
+    background-color: #7289da !important;
+    border-color: #7289da !important;
+}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header"><strong>Verification</strong></div>
+        <div class="card-body">
+            {%  if "reddit" not in session and "discord" not in session %}
+                <h5 class="card-title">Log in to verify.</h5>
+                <p class="card-text">You'll need to log in with your Reddit and Discord accounts to continue. Additionally, the following requirements have to be met:</p>
+                <ul class="card-text">
+                    <li>You must not be banned from /r/HardwareSwapUK.</li>
+                    <li>Your Reddit and Discord accounts must be at least 7 days old.</li>
+                </ul>
+
+                <a role="button" class="btn btn-outline btn-outline-login-with-reddit" href="/login/reddit">Log in with Reddit</a>
+            {% endif %}
+
+            {% if "reddit" in session and "discord" not in session %}
+                <h5 class="card-title">Now log into Discord.</h5>
+                <p class="card-text">You've logged into Reddit as <strong>{{ session.reddit.name }}</strong> and everything looks good.</p>
+                <p class="card-text">To complete the process, log into Discord:</p>
+
+                <button type="button" class="btn btn-primary btn-login-with-reddit">Logged in as {{ session.reddit.name }}</button>
+                <a role="button" class="btn btn-outline btn-outline-login-with-discord" href="/login/discord">Log in with Discord</a>
+            {% endif %}
+
+            {% if "reddit" in session and "discord" in session %}
+                <h5 class="card-title">All done!</h5>
+                <p class="card-text">Your accounts have been linked successfully. You should have access to the server now.</p>
+                <p class="card-text">If you are having trouble accessing the server, please message a moderator directly for help.</p>
+
+                <button type="button" class="btn btn-primary btn-login-with-reddit">Logged in as {{ session.reddit.name }}</button>
+                <button type="button" class="btn btn-primary btn-login-with-discord">Logged in as {{ session.discord.name }}</button>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if "reddit" not in session and "discord" not in session %}
+        <div class="card-spacing"></div>
+        <div class="card">
+            <div class="card-header"><strong>More information</strong></div>
+            <div class="card-body">
+                <p class="card-text">This collects your Reddit username and account age, as well as your Discord username and account age. <strong>By using this service, you consent to the collection of this data.</strong></p>
+                <p class="card-text">If you have any questions or problems, please message a moderator directly.</p>
+                <p class="card-text">This service was created by the moderators of HardwareSwapUK, and is based on another bot created by u/renegadeai for use on r/AMD.</p>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
